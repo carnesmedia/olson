@@ -12,7 +12,7 @@ Gem::Specification.new do |gem|
   gem.summary       = %q{TODO: Write a gem summary}
   gem.homepage      = "http://github.com/carnesmedia/olson"
 
+  gem.test_files    = Dir['spec/**/*.rb']
   gem.files         = Dir['lib/**/*.rb'] + Dir['[A-Z]*'] + gem.test_files
-  gem.test_files    = Dir['spec/fixtures/*.{mp3,txt,png,PNG,TXT,jpg}']
   gem.require_paths = ["lib"]
 end
