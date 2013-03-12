@@ -6,14 +6,13 @@ require 'olson/version'
 Gem::Specification.new do |gem|
   gem.name          = "olson"
   gem.version       = Olson::VERSION
-  gem.authors       = ["Kristian Freeman"]
+  gem.authors       = ["Kristian Freeman, Amiel Martin"]
   gem.email         = ["kristian@kristianfreeman.com"]
   gem.description   = %q{TODO: Write a gem description}
   gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.homepage      = "http://github.com/carnesmedia/olson"
 
-  gem.files         = `git ls-files`.split($/)
-  gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
-  gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
+  gem.files         = Dir['lib/**/*.rb'] + Dir['[A-Z]*'] + gem.test_files
+  gem.test_files    = Dir['spec/fixtures/*.{mp3,txt,png,PNG,TXT,jpg}']
   gem.require_paths = ["lib"]
 end
