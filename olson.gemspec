@@ -12,7 +12,6 @@ Gem::Specification.new do |gem|
   gem.summary       = %q{TODO: Write a gem summary}
   gem.homepage      = "http://github.com/carnesmedia/olson"
 
-  gem.add_dependency             "draper", ">= 0.18.0"
   gem.add_development_dependency "rspec"
 
   gem.test_files    = Dir['spec/**/*.rb']

@@ -1,5 +1,4 @@
-require "olson/version"
-
-module Olson
-  # Your code goes here...
-end
+require 'olson/instance_methods'
+require 'olson/class_methods'
+require 'olson/version'
+require 'active_support/concern'
