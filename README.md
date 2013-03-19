@@ -1,5 +1,7 @@
 # Olson
 
+[![Code Climate](https://codeclimate.com/github/carnesmedia/olson.png)](https://codeclimate.com/github/carnesmedia/olson)
+
 Olson is a tool to help display identifiers to users. It’s basically a way to turn your decorator in to a wrapper for `.humanize` with automatic built-in support for I18n.
 
 See [Using I18n and Draper to Render Database Attributes](http://blog.amielmartin.com/post/12341219947/using-i18n-and-draper-to-render-database-attributes) to read more about this concept.
