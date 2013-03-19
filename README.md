@@ -2,6 +2,7 @@
 
 *Apparently it's a reference to Mad Men and Draper...*
 
+[![Gem Version](https://badge.fury.io/rb/olson.png)](http://badge.fury.io/rb/olson)
 [![Code Climate](https://codeclimate.com/github/carnesmedia/olson.png)](https://codeclimate.com/github/carnesmedia/olson)
 
 Olson is a tool to help display identifiers to users. It’s basically a way to turn your decorator in to a wrapper for `.humanize` with automatic built-in support for I18n.
