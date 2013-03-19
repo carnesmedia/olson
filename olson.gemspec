@@ -16,7 +16,7 @@ Gem::Specification.new do |gem|
   }
   gem.homepage      = "http://github.com/carnesmedia/olson"
 
-  gem add_dependency 'active_support'
+  gem.add_dependency 'active_support'
   gem.add_development_dependency "rspec"
 
   gem.test_files    = Dir['spec/**/*.rb']
