@@ -119,7 +119,7 @@ module ClassMethods
   #
   #   # user.rb
   #   class User < AR::Base
-  #     ROLES = %w(admin user)
+  #     ROLE_OPTIONS = %w(admin user)
   #     ...
   #   end
   #
