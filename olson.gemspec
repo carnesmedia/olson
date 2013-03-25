@@ -18,6 +18,7 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'activesupport'
   gem.add_development_dependency "rspec"
+  gem.add_development_dependency "draper"
 
   gem.test_files    = Dir['spec/**/*.rb']
   gem.files         = Dir['lib/**/*.rb'] + Dir['[A-Z]*'] + gem.test_files
