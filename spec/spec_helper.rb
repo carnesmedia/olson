@@ -6,6 +6,7 @@ require 'rubygems'
 require 'bundler/setup'
 
 require 'olson'
+require 'ostruct'
 require 'draper'
 require 'draper_initializer'
 
