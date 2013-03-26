@@ -17,6 +17,8 @@ Gem::Specification.new do |gem|
   gem.homepage      = "http://github.com/carnesmedia/olson"
 
   gem.add_dependency 'activesupport'
+  gem.add_development_dependency 'coveralls'
+  gem.add_development_dependency 'activemodel'
   gem.add_development_dependency "rspec"
   gem.add_development_dependency "draper"
 
