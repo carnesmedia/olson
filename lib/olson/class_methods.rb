@@ -30,7 +30,7 @@ module ClassMethods
       attr_options = :"#{ attr }_options"
       define_singleton_method attr_options do   # def status_options
         options_for_select_with_i18n attr,      #   options_for_select_with_i18n 'status',
-          model_class.send(attr_options)        #     User.status_options
+          source_class.send(attr_options)       #     User.status_options
       end                                       # end
     end
   end

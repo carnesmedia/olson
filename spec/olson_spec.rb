@@ -1,18 +1,17 @@
 require 'spec_helper'
 
 describe Olson do
-  it "exists (sanity check)" do
-    Olson.should be
-    Olson.class.should == Module
-  end
-
   context "when using Draper" do
 
     context "without an ActiveModel model" do
       class Human
         attr_accessor :status
         def self.model_name
-          OpenStruct.new(i18n_key: "I am a stubbed key")
+          OpenStruct.new(i18n_key: "human")
+        end
+
+        def self.status_options
+          %w[ approved rejected ]
         end
       end
 
@@ -28,11 +27,19 @@ describe Olson do
         decorated_human.class.should == HumanDecorator
         decorated_human.model.should == human
         decorated_human.model.class.should == Human
+        HumanDecorator.source_class.should == Human
       end
 
       it "should humanize a status" do
         human.status = "approved"
         decorated_human.status.should == "Approved"
+      end
+
+      it 'humanizes options for select' do
+        HumanDecorator.status_options.should == [
+          ["Approved", "approved"],
+          ["Rejected", "rejected"],
+        ]
       end
     end
 
@@ -56,6 +63,7 @@ describe Olson do
         decorated_user.class.should == UserDecorator
         decorated_user.model.should == user
         decorated_user.model.class.should == User
+        UserDecorator.source_class.should == User
       end
 
       it "should humanize a field" do
