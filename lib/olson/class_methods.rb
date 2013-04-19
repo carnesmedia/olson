@@ -36,6 +36,7 @@ module ClassMethods
   end
 
   # Humanize an attribute using I18n, falling back to the humanized attributes value.
+  # The `make_default_value` method can be overridden to replace `humanize`.
   #
   # I tend to store attributes like `status` or `role` as underscored strings (a string that
   # would be suitable for a method/variable name) sometimes a simple .humanize will do the
@@ -73,9 +74,13 @@ module ClassMethods
   #   @user.decorator.plan_status # => 'Current'
   #
   #   @user.activation_status = 'inactive'
-  #   @user.decorator.activation_status = 'Inactive'
-  def humanize(attribute, key, default = key.to_s.humanize)
-    i18n_with_scoped_defaults key, [model_name.i18n_key, attribute], default if key.present?
+  #   @user.decorator.activation_status # => 'Inactive'
+  def make_default_value(value)
+    value.to_s.humanize
+  end
+
+  def humanize(attribute, value, default = make_default_value(value))
+    i18n_with_scoped_defaults value, [model_name.i18n_key, attribute], default if value.present?
   end
 
 
