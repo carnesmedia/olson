@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'rake'
+gem 'pry'
 
 gem 'rspec'
 gem 'guard', git: 'https://github.com/guard/guard.git'
