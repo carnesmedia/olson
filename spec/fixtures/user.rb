@@ -13,3 +13,12 @@ class UserDecorator < Draper::Decorator
   decorates :user
   humanizes :status
 end
+
+class CustomUserDecorator < Draper::Decorator
+  decorates :user
+  humanizes :status
+
+  def self.default_humanize(value)
+    value.to_s.upcase
+  end
+end

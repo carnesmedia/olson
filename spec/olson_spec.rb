@@ -5,8 +5,9 @@ describe Olson do
     let(:object) { User.new }
     let(:decorated) { UserDecorator.decorate(object) }
 
+    before { object.status = 'submitted' }
+
     it "humanizes a field" do
-      object.status = "submitted"
       decorated.status.should == "Submitted"
     end
 
@@ -16,6 +17,15 @@ describe Olson do
         ["Rejected", "rejected"],
       ]
     end
+
+    context 'overriding the default behaviour' do
+      let(:decorated) { CustomUserDecorator.decorate(object) }
+
+      it "humanizes a field" do
+        decorated.status.should == "SUBMITTED"
+      end
+    end
+
   end
 
   context 'without draper' do
