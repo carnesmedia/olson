@@ -6,10 +6,6 @@ class Human
   def self.model_name
     OpenStruct.new(i18n_key: "human")
   end
-
-  def self.status_options
-    %w[ approved rejected ]
-  end
 end
 
 class HumanDecorator < SimpleDelegator

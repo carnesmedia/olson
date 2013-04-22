@@ -25,6 +25,7 @@ spec_dir = Pathname.new(__FILE__).dirname
 Dir[spec_dir.join("fixtures/**/*.rb")].each { |f| require f }
 Dir[spec_dir.join("support/**/*.rb")].each { |f| require f }
 
+I18n.config.load_path << spec_dir.join('fixtures/en.yml')
 
 RSpec.configure do |config|
   # some (optional) config here

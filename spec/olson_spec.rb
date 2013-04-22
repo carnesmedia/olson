@@ -11,10 +11,15 @@ describe Olson do
       decorated.status.should == "Submitted"
     end
 
+    it 'humanizes with I18n when specified' do
+      object.status = 'rejected'
+      decorated.status.should == 'OMG Fail'
+    end
+
     it 'humanizes options for select' do
       UserDecorator.status_options.should == [
         ["Approved", "approved"],
-        ["Rejected", "rejected"],
+        ["OMG Fail", "rejected"],
       ]
     end
 
@@ -23,6 +28,13 @@ describe Olson do
 
       it "humanizes a field" do
         decorated.status.should == "SUBMITTED"
+      end
+
+      it 'humanizes options for select' do
+        CustomUserDecorator.status_options.should == [
+          ["APPROVED", "approved"],
+          ["OMG Fail", "rejected"],
+        ]
       end
     end
 
