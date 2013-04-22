@@ -2,7 +2,7 @@ module Olson
   extend ActiveSupport::Concern
 
   # See +ApplicationDecorator.humanize+
-  def humanize(attribute, key = model.send(attribute), default = key.to_s.humanize)
-    self.class.humanize attribute, key, default
+  def humanize(attribute, value = model.send(attribute), default = self.class.default_humanize(value))
+    self.class.humanize attribute, value, default
   end
 end

@@ -36,7 +36,9 @@ module ClassMethods
   end
 
   # Humanize an attribute using I18n, falling back to the humanized attributes value.
-  # The `make_default_value` method can be overridden to replace `humanize`.
+  #
+  # The `.default_humanize` method can be overridden to configure how values are humanized
+  # when they are not found in I18n.
   #
   # I tend to store attributes like `status` or `role` as underscored strings (a string that
   # would be suitable for a method/variable name) sometimes a simple .humanize will do the
@@ -75,14 +77,27 @@ module ClassMethods
   #
   #   @user.activation_status = 'inactive'
   #   @user.decorator.activation_status # => 'Inactive'
-  def make_default_value(value)
-    value.to_s.humanize
-  end
-
-  def humanize(attribute, value, default = make_default_value(value))
+  def humanize(attribute, value, default = default_humanize(value))
     i18n_with_scoped_defaults value, [model_name.i18n_key, attribute], default if value.present?
   end
 
+  # The default way to humanize a value when not found in I18n.
+  #
+  # To configure the default humanization, you can override `.default_humanize` in your
+  # decorator. For example, to use `String#titleize` instead of `String#humanize`:
+  #
+  #   # user_decorator.rb
+  #   class UserDecorator < ApplicationDecorator
+  #     decorates :user
+  #
+  #     def self.default_humanize(value)
+  #       value.to_s.titleize
+  #     end
+  #   end
+  #
+  def default_humanize(value)
+    value.to_s.humanize
+  end
 
   # Try to translate a key with I18n and a scope but fallback to less-and-less scope.
   # An example will explain more clearly:
